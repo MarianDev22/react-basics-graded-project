@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "prettier": {
-  "singleQuote": false
+    "singleQuote": false
   },
   "scripts": {
     "dev": "vite",
@@ -13,6 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
