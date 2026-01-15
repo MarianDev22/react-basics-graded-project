@@ -7,11 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-<<<<<<< HEAD
+#Dependencies
 node_modules/
-=======
-node_modules/
->>>>>>> 108bcb9 (chore: include practica-react-basics and server in repository)
+
+#Build
 dist
 dist-ssr
 *.local
@@ -27,4 +26,5 @@ dist-ssr
 *.sln
 *.sw?
 
+#Environment Files
 server/.env
