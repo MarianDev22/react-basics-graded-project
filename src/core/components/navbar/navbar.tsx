@@ -28,7 +28,13 @@ export const Menu: React.FC = () => {
             <ul>
                 
                     <li >
-                       
+                       <a href="/">Inicio</a>
+                    </li>
+                    <li >
+                       <a href="/products">Platos del menú</a>
+                    </li>
+                    <li >
+                       <a href="/login">Acceder</a>
                     </li>
                
             </ul>

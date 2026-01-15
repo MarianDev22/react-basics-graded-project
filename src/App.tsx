@@ -1,28 +1,16 @@
-import { useState } from 'react'
+import { Layout } from '@core/components/layout/layout'
+import { Outlet } from 'react-router'
 
 import './App.css'
-import { Logo } from '@core/components/logo/logo'
 
 export const App: React.FC =() => {
-  const [count, setCount] = useState(0)
+  const apptitle = 'React Basics Project'
+  const subTitle = 'Gestión de items del Menú'
 
   return (
-    <>
-    <Logo/>
-
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Layout Title={apptitle} subTitle={subTitle}>
+      <Outlet/>
+    </Layout>
   )
 }
 
