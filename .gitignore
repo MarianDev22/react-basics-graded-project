@@ -28,3 +28,4 @@ dist-ssr
 
 #Environment Files
 server/.env
+practica-react-basics/.env

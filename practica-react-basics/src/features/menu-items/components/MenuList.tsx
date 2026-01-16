@@ -5,3 +5,5 @@ export const MenuList: React.FC = () =>{
         <h2>Listado de los platos del menú</h2>
     )
 }
+
+export default MenuList

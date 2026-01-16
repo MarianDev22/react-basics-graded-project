@@ -1,5 +1,7 @@
 //import type { MenuOption } from "@core/types/menu-option";
 
+import { Link } from "react-router";
+
 //import { Link } from "react-router";
 
 // type Props = {
@@ -28,13 +30,13 @@ export const Menu: React.FC = () => {
             <ul>
                 
                     <li >
-                       <a href="/">Inicio</a>
+                       <Link to="/">Inicio</Link>
                     </li>
                     <li >
-                       <a href="/products">Platos del menú</a>
+                       <Link to="/products">Platos del menú</Link>
                     </li>
                     <li >
-                       <a href="/login">Acceder</a>
+                       <Link to="/login">Acceder</Link>
                     </li>
                
             </ul>
