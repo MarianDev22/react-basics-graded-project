@@ -3,9 +3,9 @@ export type MenuItem = {
   name: string;
   description: string;
   price: number;
-  crew: number;
   isOnSale: boolean;
-  tags: [];
+  tags: string[];
+  image: string
 };
 
 export type MenuItemDTO = Omit<MenuItem, 'id'>

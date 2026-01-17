@@ -27,18 +27,18 @@ export const getMenuList = async (): Promise<MenuItem[]> => {
     return data;
 };
 
-// export const getMenuItemById = async (id: string): Promise<MenuItem> => {
-//     const response: Response = await fetch(productsUrl + "/" + id, {
-//         headers: getAuthHeader(),
-//     });
-//     if (!response.ok) {
-//         throw new Error(
-//             response.status.toString() + ` - ` + response.statusText
-//         );
-//     }
-//     const data = await response.json();
-//     return data;
-// };
+export const getMenuItemById = async (id: string): Promise<MenuItem> => {
+    const response: Response = await fetch(productsUrl + "/" + id, {
+        headers: getAuthHeader(),
+    });
+    if (!response.ok) {
+        throw new Error(
+            response.status.toString() + ` - ` + response.statusText
+        );
+    }
+    const data = await response.json();
+    return data;
+};
 
 // export const createMenuItem = async (
 //     mitemData: MenuItemDTO
@@ -97,7 +97,7 @@ export const getMenuList = async (): Promise<MenuItem[]> => {
 
 export default {
     getMenuList,
-//     getMenuItemById,
+     getMenuItemById,
 //     createMenuItem,
 //     updateMenuItem,
 //     deleteMenuItem,
