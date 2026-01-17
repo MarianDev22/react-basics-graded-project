@@ -8,4 +8,4 @@ export type MenuItem = {
   tags: [];
 };
 
-//export type MenuItemDTO = Omit<Product, 'id'>
+export type MenuItemDTO = Omit<MenuItem, 'id'>
