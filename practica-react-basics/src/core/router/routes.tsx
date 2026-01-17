@@ -4,15 +4,18 @@ import { App } from "../../App";
 import { Card } from "@core/components/card/card";
 import React from "react";
 import { MenuItemDetail } from "@features/menu-items/components/MenuItemDetail";
+import { constants } from "@core/utils/constants";
+
 
 const HomePage = React.lazy(() => import("@features/home/home-page"));
-const MenuList = React.lazy(() => import("@features/menu-items/components/MenuList"));
+const MenuList = React.lazy(() => import("@features/menu-items/components/MenuList/MenuList"));
 const LoginPage = React.lazy(()=> import("@features/auth/login/login"))
+const RegisterPage = React.lazy(()=> import("@features/auth/register/register"))
 
 const protectRoute = (): void => {
-    const tokenKey = localStorage.getItem('token')
+    const tokenKey = localStorage.getItem(constants.tokenKey)
     if(!tokenKey) {
-        throw redirect('/');
+        throw redirect('/login');
     }
 }
 export const routes: RouteObject[] = [
@@ -27,7 +30,7 @@ export const routes: RouteObject[] = [
             {
                 path: "/home",
                 loader: (): void =>{
-                    throw redirect('/');
+                    throw redirect('/products');
                 },
                 id: "Inicio",
             },
@@ -46,6 +49,11 @@ export const routes: RouteObject[] = [
                 path: "/login",
                 Component: LoginPage,
                 id: "Login",
+            },
+            {
+                path: "/register",
+                Component: RegisterPage,
+                id: "Register",
             },
             {
                 path: "*",

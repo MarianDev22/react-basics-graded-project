@@ -8,29 +8,37 @@ import type React from "react";
 
 import { Card } from "@core/components/card/card";
 import { useId, useState } from "react";
+import type { LoginDTO } from "../types/auth";
+import { loginService } from "../services/auth-service";
+import { useNavigate } from "react-router";
 
-interface Login {
-    email: string;
-    password: string;
-    rememberMe: boolean;
-}
 
-const login: Login = {
-    email: "",
+
+const login: LoginDTO = {
+    username: "",
     password: "",
     rememberMe: false,
 };
 
 export const LoginPage: React.FC = () => {
-    const [userData, setUserData] = useState<Login>(login);
+    const navigate = useNavigate()
+    const [userData, setUserData] = useState<LoginDTO>(login);
 
-    const emailId = useId();
+    const usernameId = useId();
     const passwordId = useId();
     const rememberMeId = useId();
 
-    const handleSubmit: React.FormEventHandler = (event) => {
+    const handleSubmit: React.FormEventHandler = async (event) => {
         event.preventDefault();
-        console.log(userData);
+        try {
+            await loginService({
+                username: userData.username,
+                password: userData.password
+            });
+            navigate('/products')
+        } catch (error) {
+            alert ("Login incorrecto")
+        }
     };
 
     const handleChange: React.ChangeEventHandler<HTMLInputElement | HTMLSelectElement> = (
@@ -48,20 +56,20 @@ export const LoginPage: React.FC = () => {
         <Card title="Login">
             <form onSubmit={handleSubmit}>
                 <div className="group-control">
-                    <label htmlFor={emailId}>
+                    <label htmlFor={usernameId}>
                         <span
                             style={{ display: "inline-block", width: "6rem" }}
                         >
-                            Email:
+                            Usuario:
                         </span>
                         <input
-                            type="email"
-                            name="email"
-                            id={emailId}
-                            placeholder="Dime tu email"
-                            aria-label="email"
+                            type="username"
+                            name="username"
+                            id={usernameId}
+                            placeholder="Dime tu usuario"
+                            aria-label="username"
                             required
-                            value={userData.email}
+                            value={userData.username}
                             onChange={handleChange}
                         />
                     </label>
@@ -71,7 +79,7 @@ export const LoginPage: React.FC = () => {
                         <span
                             style={{ display: "inline-block", width: "6rem" }}
                         >
-                            Password:
+                            Contraseña:
                         </span>
                         <input
                             type="password"
