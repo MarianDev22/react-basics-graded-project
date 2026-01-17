@@ -81,24 +81,24 @@ export const getMenuItemById = async (id: string): Promise<MenuItem> => {
 //     return data;
 // };
 
-// export const deleteMenuItem = async (id: MenuItem["id"]): Promise<MenuItem> => {
-//     const response: Response = await fetch(productsUrl + "/" + id, {
-//         method: "DELETE",
-//         headers: getAuthHeader(),
-//     });
-//     if (!response.ok) {
-//         throw new Error(
-//             response.status.toString() + ` - ` + response.statusText
-//         );
-//     }
-//     const data = await response.json();
-//     return data;
-// };
+export const deleteMenuItem = async (id: MenuItem["id"]): Promise<MenuItem> => {
+    const response: Response = await fetch(productsUrl + "/" + id, {
+        method: "DELETE",
+        headers: getAuthHeader(),
+    });
+    if (!response.ok) {
+        throw new Error(
+            response.status.toString() + ` - ` + response.statusText
+        );
+    }
+    const data = await response.json();
+    return data;
+};
 
 export default {
     getMenuList,
      getMenuItemById,
 //     createMenuItem,
 //     updateMenuItem,
-//     deleteMenuItem,
+    deleteMenuItem,
 };

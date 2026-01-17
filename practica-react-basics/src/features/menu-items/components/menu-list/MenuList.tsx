@@ -28,10 +28,10 @@ export const MenuList: React.FC = () =>{
         <>
             {menuItems.map((item) => (
             <div key={item.id} className="menu-item-container">
-                <Card >
+                <Card className="card shadow-sm h-100">
                     {item.name}
                     <Link to={`/products/${item.id}`}>
-                        <button >Ver detalles</button>                
+                        <button className="btn btn-secondary me-2">Ver detalles</button>                
                     </Link>
                 </Card>
             </div>
