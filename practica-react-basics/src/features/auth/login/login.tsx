@@ -1,16 +1,10 @@
 import type React from "react";
 
-// export const LoginPage: React.FC =() =>{
-//     return(
-//         <h2>Formulario de Login</h2>
-//     )
-// }
-
 import { Card } from "@core/components/card/card";
 import { useId, useState } from "react";
 import type { LoginDTO } from "../types/auth";
 import { loginService } from "../services/auth-service";
-import { useNavigate } from "react-router";
+
 
 
 
@@ -21,7 +15,7 @@ const login: LoginDTO = {
 };
 
 export const LoginPage: React.FC = () => {
-    const navigate = useNavigate()
+
     const [userData, setUserData] = useState<LoginDTO>(login);
 
     const usernameId = useId();
@@ -35,7 +29,7 @@ export const LoginPage: React.FC = () => {
                 username: userData.username,
                 password: userData.password
             });
-            navigate('/products')
+            window.location.href='/products'
         } catch (error) {
             alert ("Login incorrecto")
         }

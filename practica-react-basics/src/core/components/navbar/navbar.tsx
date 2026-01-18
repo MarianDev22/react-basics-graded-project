@@ -1,45 +1,46 @@
-//import type { MenuOption } from "@core/types/menu-option";
+import type { MenuOption } from "@core/types/menu-option";
 
-import { Link } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 
-//import { Link } from "react-router";
-
-// type Props = {
-//     readonly options: MenuOption[];
-// };
-
-// export const Menu: React.FC<Props> = ({ options }) => {
-//     return (
-//         <nav>
-//             <ul>
-//                 {options.map((item) => (
-//                     <li key={item.path}>
-//                         <Link to={item.path}> {item.label}</Link>
-//                     </li>
-//                 ))}
-//             </ul>
-//         </nav>
-//     );
-// };
-
-
-
-export const Menu: React.FC = () => {
-    return (
-        <nav>
-            <ul>
-                
-                    <li >
-                       <Link to="/">Inicio</Link>
-                    </li>
-                    <li >
-                       <Link to="/products">Platos del menú</Link>
-                    </li>
-                    <li >
-                       <Link to="/login">Acceder</Link>
-                    </li>
-               
-            </ul>
-        </nav>
-    );
+ type Props = {
+    readonly options: MenuOption[];
+    islogged: boolean;
+    onLogout: () => void;
 };
+
+
+
+export const Navbar: React.FC<Props> = ({islogged, onLogout, options}) => {
+    const navigate = useNavigate();
+
+    const handleLogoutClick = () => {
+        onLogout()
+        navigate('/')
+    }
+
+    return (
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+            <NavLink className="navbar-brand" to="/products">🍽️ Dashboard Platos</NavLink>
+            <div className="navbar-nav ms-auto align-items-center">
+            {islogged? (
+                <>
+                {options.map((option)=> (
+                    <NavLink
+                    key={option.path}
+                    className="nav-link"
+                    to={option.path}>
+                        {option.label}
+                    </NavLink>
+                ))}
+                <button
+                className="btn btn-outline-danger ms-2" 
+                onClick={handleLogoutClick} >
+                    Cerrar Sesión
+                </button>
+                </>
+            ) : (null)}
+            </div>
+        </nav>
+
+);
+}

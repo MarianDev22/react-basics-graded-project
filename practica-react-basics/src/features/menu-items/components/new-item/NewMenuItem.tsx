@@ -5,3 +5,5 @@ export const NewMenuItem: React.FC = () =>{
         <h2>Agregar nuevo plato al menú</h2>
     )
 }
+
+export default NewMenuItem

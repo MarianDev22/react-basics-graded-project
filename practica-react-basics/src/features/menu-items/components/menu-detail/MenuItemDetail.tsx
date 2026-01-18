@@ -56,15 +56,15 @@ export const MenuItemDetail: React.FC = () =>{
     			  <span className="fw-bold fs-4">{menuItem?.price}€</span>
                 </div>
                 <p className="card-text fw-bold text-success fs-6 small">{menuItem?.isOnSale? (''):('Recomendación del día')}</p>
-                {menuItem?.image && (
+
                     <div className="mb-3">
                         <img 
-                            src={menuItem.image ? menuItem.image : 'https://placehold.co/600x400?text=Plato+sin+foto'} 
-                            alt={menuItem.name} 
+                            src={menuItem?.image ? menuItem.image : 'https://placehold.co/600x400?text=Plato+sin+foto'} 
+                            alt={menuItem?.name} 
                             className="img-fluid rounded product-image-detail" 
                         />
                     </div>
-                    )}
+
                 <div className="mb-3">
                     {menuItem?.tags.map(tag => (
                         <span key={tag} className="badge bg-info me-1">{tag}</span>
