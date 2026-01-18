@@ -66,67 +66,73 @@ export const MenuItemForm: React.FC<Props>= ({item, onClose}) =>{
 
 
     return(
-        <form onSubmit={handleSubmit} className="p-3 border rounded bg-light">
-            <h3>{item ? "Editar Plato" : "Nuevo Plato"}</h3>
-            <div className="mb-3">
-                <label htmlFor="name" className="form-label ">Nombre del plato</label>
-                    <input 
-                        className="form-control"
-                        type="text"
-                        name="name"
-                        value={menuItem.name|| ""} 
-                        onChange={handleChange} 
-                    />
-                <label htmlFor="price" className="form-label">Precio del plato</label>
-                    <input
-                        className="form-control"
-                        type="number" 
-                        name="price"
-                        step="0.01"
-                        min="0"
-                        value={menuItem.price|| 0} 
-                        onChange={handleChange} 
-                    />
-                <label htmlFor="description" className="form-label">Descripción</label>
-                    <textarea
-                        className="form-control"
-                        name="description"
-                        value={menuItem.description||""} 
-                        onChange={handleChange} 
-                    />
-                <label htmlFor="isOnSale" className="form-check-label">¿Es recomendación del día?</label>
-                    <input
-                        className="form-check-input"
-                        type="checkbox" 
-                        name="isOnSale"
-                        checked={menuItem.isOnSale||""} 
-                        onChange={handleChange} 
-                    />
-                <label htmlFor="image" className="form-check-label">Imagen</label>
-                    <input
-                        className="form-control"
-                        type="text" 
-                        name="image"
-                        value ={menuItem.image || ""}
-                        onChange={handleChange} 
-                        placeholder="URL de la imagen"
-                    />
-                <label htmlFor="tags" className="form-check-label">Categorías</label>
-                    <input
-                        className="form-control"
-                        type="text" 
-                        name="tags"
-                        value={menuItem.tags||""}
-                        onChange={handleChange} 
-                        placeholder="Utilice comas. Ej: vegano, picante, postre"
-                    />
+        <div className="container mt-5"> 
+            <div className="row justify-content-center"> 
+                <div className="col-12 col-md-8 col-lg-6">
+                    <form onSubmit={handleSubmit} className="p-3 border rounded bg-light">
+                        <h3>{item ? "Editar Plato" : "Nuevo Plato"}</h3>
+                        <div className="mb-3">
+                            <label htmlFor="name" className="form-label ">Nombre del plato</label>
+                                <input 
+                                    className="form-control"
+                                    type="text"
+                                    name="name"
+                                    value={menuItem.name|| ""} 
+                                    onChange={handleChange} 
+                                />
+                            <label htmlFor="price" className="form-label">Precio del plato</label>
+                                <input
+                                    className="form-control"
+                                    type="number" 
+                                    name="price"
+                                    step="0.01"
+                                    min="0"
+                                    value={menuItem.price|| 0} 
+                                    onChange={handleChange} 
+                                />
+                            <label htmlFor="description" className="form-label">Descripción</label>
+                                <textarea
+                                    className="form-control"
+                                    name="description"
+                                    value={menuItem.description||""} 
+                                    onChange={handleChange} 
+                                />
+                            <label htmlFor="isOnSale" className="form-check-label">¿Es recomendación del día?</label>
+                                <input
+                                    className="form-check-input"
+                                    type="checkbox" 
+                                    name="isOnSale"
+                                    checked={menuItem.isOnSale||""} 
+                                    onChange={handleChange} 
+                                />
+                            <label htmlFor="image" className="form-check-label">Imagen</label>
+                                <input
+                                    className="form-control"
+                                    type="text" 
+                                    name="image"
+                                    value ={menuItem.image || ""}
+                                    onChange={handleChange} 
+                                    placeholder="URL de la imagen"
+                                />
+                            <label htmlFor="tags" className="form-check-label">Categorías</label>
+                                <input
+                                    className="form-control"
+                                    type="text" 
+                                    name="tags"
+                                    value={menuItem.tags||""}
+                                    onChange={handleChange} 
+                                    placeholder="Utilice comas. Ej: vegano, picante, postre"
+                                />
 
+                        </div>
+                        <div className="btn-group"></div>
+
+                        <button type="submit" className="btn btn-primary me-2">Guardar</button>
+                        <button type="button" className="btn btn-secondary" onClick={handleCancel}>Cancelar</button>
+                    </form>
+                </div>
             </div>
-            <div className="btn-group"></div>
-
-            <button type="submit" className="btn btn-primary me-2">Guardar</button>
-            <button type="button" className="btn btn-secondary" onClick={handleCancel}>Cancelar</button>
-</form>
+        </div>
     );
 };
  
