@@ -12,7 +12,6 @@ import { Link } from "react-router";
 const login: LoginDTO = {
     username: "",
     password: "",
-    rememberMe: false,
 };
 
 export const LoginPage: React.FC = () => {
@@ -21,7 +20,6 @@ export const LoginPage: React.FC = () => {
 
     const usernameId = useId();
     const passwordId = useId();
-    const rememberMeId = useId();
 
     const handleSubmit: React.FormEventHandler = async (event) => {
         event.preventDefault();
@@ -54,13 +52,8 @@ export const LoginPage: React.FC = () => {
                     <Card title="Login">
                         <form onSubmit={handleSubmit}>
                             <div className="group-control">
-                                <label htmlFor={usernameId}>
-                                    <span
-                                        style={{ display: "inline-block", width: "6rem" }}
-                                    >
-                                        Usuario:
-                                    </span>
-                                    <input
+                                <label htmlFor={usernameId}>Usuario:</label>
+                                <input
                                         type="username"
                                         name="username"
                                         id={usernameId}
@@ -70,16 +63,10 @@ export const LoginPage: React.FC = () => {
                                         value={userData.username}
                                         onChange={handleChange}
                                     />
-                                </label>
                             </div>
                             <div className="group-control">
-                                <label htmlFor={passwordId}>
-                                    <span
-                                        style={{ display: "inline-block", width: "6rem" }}
-                                    >
-                                        Contraseña:
-                                    </span>
-                                    <input
+                                <label htmlFor={passwordId}>Contraseña:</label>
+                                <input
                                         type="password"
                                         name="password"
                                         id={passwordId}
@@ -90,25 +77,9 @@ export const LoginPage: React.FC = () => {
                                         value={userData.password}
                                         onChange={handleChange}
                                     />
-                                </label>
-                            </div>
-                            <div>
-                                <label htmlFor={rememberMeId}>
-                                    <input
-                                        type="checkbox"
-                                        name="rememberMe"
-                                        id={rememberMeId}
-                                        aria-label="rememberMe"
-                                        checked={userData.rememberMe}
-                                        onChange={handleChange}
-                                    />
-                                    <span style={{ marginLeft: "0.5rem" }}>Recuérdame</span>
-                                </label>
                             </div>
                             <div>
                                 <button className= "btn btn-primary" type="submit">Enviar</button>
-                            </div>
-                            <div>
                                 <Link to="/"className= "bbtn btn-outline-secondary" type="submit">Volver</Link>
                             </div>
                         </form>

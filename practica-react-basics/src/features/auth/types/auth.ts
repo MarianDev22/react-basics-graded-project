@@ -10,9 +10,8 @@ export type RegisterDTO = {
 export type LoginDTO = {
   username: string;
   password: string;
-  rememberMe?: boolean;
 };
 
-export interface AuthResponse {
-    accessToken: string;
-}
+// export interface AuthResponse {
+//     accessToken: string;
+// }

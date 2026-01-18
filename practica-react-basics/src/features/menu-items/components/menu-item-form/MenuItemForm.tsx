@@ -72,7 +72,7 @@ export const MenuItemForm: React.FC<Props>= ({item, onClose}) =>{
                     <form onSubmit={handleSubmit} className="p-3 border rounded bg-light">
                         <h3>{item ? "Editar Plato" : "Nuevo Plato"}</h3>
                         <div className="mb-3">
-                            <label htmlFor="name" className="form-label ">Nombre del plato</label>
+                            <label htmlFor="name" className="form-label ">Nombre</label>
                                 <input 
                                     className="form-control"
                                     type="text"
@@ -80,7 +80,7 @@ export const MenuItemForm: React.FC<Props>= ({item, onClose}) =>{
                                     value={menuItem.name|| ""} 
                                     onChange={handleChange} 
                                 />
-                            <label htmlFor="price" className="form-label">Precio del plato</label>
+                            <label htmlFor="price" className="form-label">Precio</label>
                                 <input
                                     className="form-control"
                                     type="number" 
@@ -97,15 +97,20 @@ export const MenuItemForm: React.FC<Props>= ({item, onClose}) =>{
                                     value={menuItem.description||""} 
                                     onChange={handleChange} 
                                 />
-                            <label htmlFor="isOnSale" className="form-check-label">¿Es recomendación del día?</label>
-                                <input
-                                    className="form-check-input"
-                                    type="checkbox" 
-                                    name="isOnSale"
-                                    checked={menuItem.isOnSale||""} 
-                                    onChange={handleChange} 
-                                />
-                            <label htmlFor="image" className="form-check-label">Imagen</label>
+                            <div className="form-check mb-3 mt-3">
+                                    <input
+                                        id="isOnSale"
+                                        className="form-check-"
+                                        type="checkbox" 
+                                        name="isOnSale"
+                                        checked={menuItem.isOnSale||""} 
+                                        onChange={handleChange} 
+                                    />
+                                    <label htmlFor="isOnSale" className="form-check-label fw-bold ">
+                                        ¿Es recomendación del día?
+                                        </label>
+                            </div>
+                                <label htmlFor="image" className="form-label">Imagen</label>
                                 <input
                                     className="form-control"
                                     type="text" 
