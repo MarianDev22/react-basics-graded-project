@@ -4,6 +4,7 @@ import { Card } from "@core/components/card/card";
 import { useId, useState } from "react";
 import type { RegisterDTO } from "../types/auth";
 import { registerService } from "../services/auth-service";
+import { Link } from "react-router";
 
 
 
@@ -192,6 +193,9 @@ export const RegisterPage: React.FC = () => {
                             "Enviar"
                         )}
                     </button>
+                </div>
+                <div>
+                    <Link to="/"className= "btn btn-outline-secondary" type="submit">Volver</Link>
                 </div>
             </form>
         </Card>

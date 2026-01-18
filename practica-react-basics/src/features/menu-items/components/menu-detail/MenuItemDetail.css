@@ -2,9 +2,10 @@
 .product-image-detail {
   max-width: 100%;
   height: auto;
-  max-height: 400px;
+  max-height: 300px;
   object-fit: cover;
   display: block; 
   margin: 0 auto 1.5rem; 
-  border-radius: 8px; 
+  border-radius: 8px;
+  border-bottom: 1px solid #eee; 
 }
