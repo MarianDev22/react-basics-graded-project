@@ -1,7 +1,10 @@
 export type RegisterDTO = {
   username: string;
   password: string;
-  //email: string;  
+  confirmPassword: string,
+  email: string;  
+  name: string;
+  surname: string
 };
 
 export type LoginDTO = {

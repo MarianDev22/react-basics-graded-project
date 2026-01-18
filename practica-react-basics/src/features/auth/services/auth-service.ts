@@ -1,5 +1,5 @@
 import { constants } from "@core/utils/constants";
-import type { LoginDTO } from "../types/auth";
+import type { LoginDTO, RegisterDTO } from "../types/auth";
 
 const authenticateUrl = import.meta.env.VITE_AUTH_URL
 
@@ -24,7 +24,7 @@ export const loginService = async (loginData: LoginDTO) => {
 
 }
 
-export const registerService = async (loginData: LoginDTO) => {
+export const registerService = async (loginData: RegisterDTO) => {
     const response = await fetch(authenticateUrl + "/register", {
         method: "POST",
         body:JSON.stringify(loginData),

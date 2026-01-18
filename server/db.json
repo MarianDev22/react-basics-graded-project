@@ -172,6 +172,15 @@
       "username": "josefa",
       "password": "$2b$10$zZhyVfeD7fMDe9ma.5hWXOiwBqRroyq1Qm5VliHy0lUqgT4t71iKm",
       "id": 5
+    },
+    {
+      "username": "Lili_FR",
+      "password": "$2b$10$d/93lKVDDU4RJojEG.umJ.WyUbRjrUn7BtizEfcfcKEhQz./2yAqa",
+      "confirmPassword": "12345678",
+      "email": "lili@email.com",
+      "name": "Lili",
+      "surname": "FR",
+      "id": 6
     }
   ]
 }

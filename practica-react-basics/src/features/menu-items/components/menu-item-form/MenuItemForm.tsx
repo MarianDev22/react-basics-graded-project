@@ -42,15 +42,34 @@ export const MenuItemForm: React.FC<Props>= ({item, onClose}) =>{
 
     }
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>):void => {
-        const {name, value, type} = event.target;
-        const finalValue = type === 'checkbox'
-        ? (event.target as HTMLInputElement).checked: type === 'number'? Number(value):value
-        setMenuItem({
-            ...menuItem,
-            [name]: finalValue,
-        })
+    // const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>):void => {
+    //     const {name, value, type} = event.target;
+    //     const finalValue = type === 'checkbox'
+    //     ? (event.target as HTMLInputElement).checked: type === 'number'? Number(value):value
+    //     setMenuItem({
+    //         ...menuItem,
+    //         [name]: finalValue,
+    //     })
+    // }
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+    const { name, value, type } = event.target;
+    
+    let finalValue: any;
+
+    if (type === 'checkbox') {
+        finalValue = (event.target as HTMLInputElement).checked;
+    } else if (type === 'number') {
+        finalValue = value === '' ? '' : Number(value);
+    } else {
+        finalValue = value;
     }
+
+    setMenuItem({
+        ...menuItem,
+        [name]: finalValue,
+    });
+};
 
     const handleCancel = (): void => {
         onClose(null);
