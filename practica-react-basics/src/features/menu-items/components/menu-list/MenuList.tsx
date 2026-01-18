@@ -88,7 +88,10 @@ export const MenuList: React.FC = () =>{
                 </div>
             </div>
             {filteredItems.length === 0 ? (
-                <p className="text-center mt-4">No se han encontrado platos con esos criterios.</p>
+                <div className="text-center py-5">
+                    <h3>No hay platos que coincidan</h3>
+                    <p className="text-muted">Prueba a cambiar los filtros o el buscador.</p>
+                </div>
             ): (
 
                 filteredItems.map((item) => (

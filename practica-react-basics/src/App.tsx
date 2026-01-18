@@ -5,8 +5,8 @@ import './App.css'
 
 
 export const App: React.FC =() => {
-  const apptitle = 'React Basics Project'
-  const subTitle = 'Gestión de items del Menú'
+  const apptitle = ''
+  const subTitle = ''
 
 
 

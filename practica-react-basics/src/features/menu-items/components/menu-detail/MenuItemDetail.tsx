@@ -65,12 +65,13 @@ export const MenuItemDetail: React.FC = () =>{
         }
         loadDetail();
     }, [id]);
+    
     if (error) {return (
         <NotFoundPage/>
     )} else return(
         <Card className="card shadow-sm h-100">
             {showForm? (
-            <MenuItemForm item={activeMenuItem} onClose={handleCloseForm}/>
+            <MenuItemForm item={activeMenuItem} onClose={handleCloseForm} />
         ) :(
             <div className="card-body">
                 <h2 className="card-title fw-bold">{menuItem?.name}</h2>
@@ -89,7 +90,7 @@ export const MenuItemDetail: React.FC = () =>{
                     </div>
 
                 <div className="mb-3">
-                    {menuItem?.tags.map(tag => (
+                    {menuItem?.tags?.map(tag => (
                         <span key={tag} className="badge bg-info me-1">{tag}</span>
                     ))}
                 </div>

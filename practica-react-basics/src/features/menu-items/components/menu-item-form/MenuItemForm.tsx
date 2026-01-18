@@ -4,8 +4,8 @@ import type React from "react";
 import { useState } from "react";
 
 type Props = {
-    item: MenuItem | null;
-    onClose: (menuItem: MenuItem | null, isEditing?: boolean) => void;
+    readonly item: MenuItem | null;
+    readonly onClose: (menuItem: MenuItem | null, isEditing?: boolean) => void;
 };
 
 export const newMenuItem: MenuItemDTO = {
@@ -37,44 +37,34 @@ export const MenuItemForm: React.FC<Props>= ({item, onClose}) =>{
             ...menuItem,
             tags: finalTags
         };
-
         onClose(finalData, isEditing);
 
     }
 
-    // const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>):void => {
-    //     const {name, value, type} = event.target;
-    //     const finalValue = type === 'checkbox'
-    //     ? (event.target as HTMLInputElement).checked: type === 'number'? Number(value):value
-    //     setMenuItem({
-    //         ...menuItem,
-    //         [name]: finalValue,
-    //     })
-    // }
-
     const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
-    const { name, value, type } = event.target;
-    
-    let finalValue: any;
+        const { name, value, type } = event.target;
+        
+        let finalValue: any;
 
-    if (type === 'checkbox') {
-        finalValue = (event.target as HTMLInputElement).checked;
-    } else if (type === 'number') {
-        finalValue = value === '' ? '' : Number(value);
-    } else {
-        finalValue = value;
-    }
+        if (type === 'checkbox') {
+            finalValue = (event.target as HTMLInputElement).checked;
+        } else if (type === 'number') {
+            finalValue = value === '' ? '' : Number(value);
+        } else {
+            finalValue = value;
+        }
 
-    setMenuItem({
-        ...menuItem,
-        [name]: finalValue,
-    });
-};
+        setMenuItem({
+            ...menuItem,
+            [name]: finalValue,
+        });
+    };
 
     const handleCancel = (): void => {
         onClose(null);
     };
-    
+
+
     return(
         <form onSubmit={handleSubmit} className="p-3 border rounded bg-light">
             <h3>{item ? "Editar Plato" : "Nuevo Plato"}</h3>
@@ -84,7 +74,7 @@ export const MenuItemForm: React.FC<Props>= ({item, onClose}) =>{
                         className="form-control"
                         type="text"
                         name="name"
-                        value={menuItem.name} 
+                        value={menuItem.name|| ""} 
                         onChange={handleChange} 
                     />
                 <label htmlFor="price" className="form-label">Precio del plato</label>
@@ -94,14 +84,14 @@ export const MenuItemForm: React.FC<Props>= ({item, onClose}) =>{
                         name="price"
                         step="0.01"
                         min="0"
-                        value={menuItem.price} 
+                        value={menuItem.price|| 0} 
                         onChange={handleChange} 
                     />
                 <label htmlFor="description" className="form-label">Descripción</label>
                     <textarea
                         className="form-control"
                         name="description"
-                        value={menuItem.description} 
+                        value={menuItem.description||""} 
                         onChange={handleChange} 
                     />
                 <label htmlFor="isOnSale" className="form-check-label">¿Es recomendación del día?</label>
@@ -109,7 +99,7 @@ export const MenuItemForm: React.FC<Props>= ({item, onClose}) =>{
                         className="form-check-input"
                         type="checkbox" 
                         name="isOnSale"
-                        checked={menuItem.isOnSale} 
+                        checked={menuItem.isOnSale||""} 
                         onChange={handleChange} 
                     />
                 <label htmlFor="image" className="form-check-label">Imagen</label>
@@ -117,7 +107,7 @@ export const MenuItemForm: React.FC<Props>= ({item, onClose}) =>{
                         className="form-control"
                         type="text" 
                         name="image"
-                        value={menuItem.image} 
+                        value ={menuItem.image || ""}
                         onChange={handleChange} 
                         placeholder="URL de la imagen"
                     />
@@ -126,7 +116,7 @@ export const MenuItemForm: React.FC<Props>= ({item, onClose}) =>{
                         className="form-control"
                         type="text" 
                         name="tags"
-                        value={menuItem.tags}
+                        value={menuItem.tags||""}
                         onChange={handleChange} 
                         placeholder="Utilice comas. Ej: vegano, picante, postre"
                     />

@@ -95,6 +95,7 @@ export const deleteMenuItem = async (id: MenuItem["id"]): Promise<MenuItem> => {
     return data;
 };
 
+
 export default {
     getMenuList,
     getMenuItemById,

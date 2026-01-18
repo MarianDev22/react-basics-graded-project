@@ -15,7 +15,7 @@
     },
     {
       "name": "Hummus de Remolacha con Crudités",
-      "price": 10,
+      "price": 9,
       "description": "Crema de garbanzos y remolacha servida con bastoncitos de zanahoria y apio fresco.",
       "isOnSale": false,
       "image": "https://images.unsplash.com/photo-1541519227354-08fa5d50c44d",
@@ -140,6 +140,28 @@
         "sin gluten"
       ],
       "id": 11
+    },
+    {
+      "name": "Milanesa con papas fritas",
+      "price": 10,
+      "description": "",
+      "isOnSale": false,
+      "image": "",
+      "tags": [
+        "principal"
+      ],
+      "id": 12
+    },
+    {
+      "name": "panqueque con dulce de leche",
+      "price": 6.01,
+      "description": "Dos riquísimos panqueques rellenos del mejor dulce de leche acompañados con una bola de helado de vainilla",
+      "isOnSale": false,
+      "image": "https://rb.gy/z6c08y",
+      "tags": [
+        "postre"
+      ],
+      "id": 13
     }
   ],
   "products1": [
