@@ -40,25 +40,25 @@ export const getMenuItemById = async (id: string): Promise<MenuItem> => {
     return data;
 };
 
-// export const createMenuItem = async (
-//     mitemData: MenuItemDTO
-// ): Promise<MenuItem> => {
-//     const response: Response = await fetch(productsUrl, {
-//         method: "POST",
-//         body: JSON.stringify(mitemData),
-//         headers: {
-//             ...getAuthHeader(),
-//             "Content-Type": "application/json",
-//         },
-//     });
-//     if (!response.ok) {
-//         throw new Error(
-//             response.status.toString() + ` - ` + response.statusText
-//         );
-//     }
-//     const data = await response.json();
-//     return data;
-// };
+export const createMenuItem = async (
+    mitemData: MenuItemDTO
+): Promise<MenuItem> => {
+    const response: Response = await fetch(productsUrl, {
+        method: "POST",
+        body: JSON.stringify(mitemData),
+        headers: {
+            ...getAuthHeader(),
+            "Content-Type": "application/json",
+        },
+    });
+    if (!response.ok) {
+        throw new Error(
+            response.status.toString() + ` - ` + response.statusText
+        );
+    }
+    const data = await response.json();
+    return data;
+};
 
 export const updateMenuItem = async (
     id: MenuItem["id"],
@@ -97,8 +97,8 @@ export const deleteMenuItem = async (id: MenuItem["id"]): Promise<MenuItem> => {
 
 export default {
     getMenuList,
-     getMenuItemById,
-//     createMenuItem,
+    getMenuItemById,
+    createMenuItem,
     updateMenuItem,
     deleteMenuItem,
 };

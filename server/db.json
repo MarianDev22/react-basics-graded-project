@@ -1,6 +1,21 @@
 {
   "products": [
     {
+      "name": "Ensalada de Quinoa y Mango",
+      "price": 10.5,
+      "description": "Mezcla de hojas verdes, quinoa real, mango fresco y vinagreta de lima.",
+      "isOnSale": true,
+      "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+      "tags": [
+        "entrante",
+        "vegano",
+        "sin gluten"
+      ],
+      "id": 1
+    }
+  ],
+  "products1": [
+    {
       "id": "a2f7",
       "name": "Hummus de Remolacha con Crudités",
       "price": 10,
@@ -94,7 +109,7 @@
       "name": "Mousse de Chocolate y Aguacate",
       "price": 7.5,
       "description": "Postre cremoso de cacao puro y aguacate maduro, endulzado con sirope de ágave.",
-      "image": "https://images.unsplash.com/photo-1528451633342-83bb31ed5592",
+      "image": "",
       "isOnSale": false,
       "tags": [
         "postre",

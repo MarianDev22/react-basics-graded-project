@@ -73,6 +73,8 @@ export const MenuItemForm: React.FC<Props>= ({item, onClose}) =>{
                         className="form-control"
                         type="number" 
                         name="price"
+                        step="0.01"
+                        min="0"
                         value={menuItem.price} 
                         onChange={handleChange} 
                     />
