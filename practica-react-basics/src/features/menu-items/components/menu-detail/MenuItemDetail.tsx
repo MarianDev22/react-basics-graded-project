@@ -6,6 +6,7 @@ import type React from "react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import "@features/menu-items/components/menu-detail/MenuItemDetail.css"
+import { MenuItemForm } from "../menu-item-form/MenuItemForm";
 
 
 
@@ -17,6 +18,8 @@ export const MenuItemDetail: React.FC = () =>{
     const [error, setError] = useState(false);
     const [isDeleting, setIsDeleting] = useState(false)
     const navigate = useNavigate()
+    const [showForm, setShowForm] = useState<boolean>(false);
+    const [activeMenuItem, setActiveMenuItem] = useState<MenuItem | null>(null);
 
     const handleDelete = async() =>{
         if(!id)return;
@@ -27,8 +30,25 @@ export const MenuItemDetail: React.FC = () =>{
         } catch (error) {
             alert((error as Error).message)
         }
-    }
+    };
 
+    const handleEditForm = (): void => {
+        setActiveMenuItem(menuItem);
+        setShowForm(true);
+    };
+
+    const handleCloseForm = async (menuItem:MenuItem | null, isEditing?: boolean ): Promise<void> =>{
+        setShowForm(false);
+        setActiveMenuItem(null);
+        if(menuItem && isEditing){
+            try {
+                await repo.updateMenuItem(menuItem.id,menuItem);
+                setMenuItem(menuItem)
+            } catch (error) {
+                alert((error as Error).message)
+            }
+            }
+        }
 
 
     useEffect(() => {
@@ -49,13 +69,16 @@ export const MenuItemDetail: React.FC = () =>{
         <NotFoundPage/>
     )} else return(
         <Card className="card shadow-sm h-100">
-            <div>
+            {showForm? (
+            <MenuItemForm item={activeMenuItem} onClose={handleCloseForm}/>
+        ) :(
+            <div className="card-body">
                 <h2 className="card-title fw-bold">{menuItem?.name}</h2>
                 <p className="card-text text-muted  fs-5 small">{menuItem?.description}</p>
                 <div className="align-items-center">
     			  <span className="fw-bold fs-4">{menuItem?.price}€</span>
                 </div>
-                <p className="card-text fw-bold text-success fs-6 small">{menuItem?.isOnSale? (''):('Recomendación del día')}</p>
+                <p className="card-text fw-bold text-success fs-6 small">{menuItem?.isOnSale? ('Recomendación del día'):('')}</p>
 
                     <div className="mb-3">
                         <img 
@@ -79,7 +102,7 @@ export const MenuItemDetail: React.FC = () =>{
                         <>
                             <button 
                                 className="btn btn-warning me-2" 
-                              /*  onClick={() => navigate(`/products/edit/${id}`)}*/ >
+                                onClick={handleEditForm} >
                                 Editar Plato
                             </button>
                             <button 
@@ -103,6 +126,8 @@ export const MenuItemDetail: React.FC = () =>{
                 </div>
 
             </div>
+
+        )}
         </Card>
     )
 }

@@ -7,6 +7,7 @@ import { Link } from "react-router";
 
 export const MenuList: React.FC = () =>{
     const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
+    
 
     useEffect(() => {
         const loadList =  async (): Promise<void> => {

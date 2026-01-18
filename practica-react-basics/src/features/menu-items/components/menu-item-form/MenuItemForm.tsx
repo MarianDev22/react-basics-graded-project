@@ -1,5 +1,5 @@
 
-import type { MenuItem} from "@features/menu-items/types/menu-item";
+import type { MenuItem, MenuItemDTO} from "@features/menu-items/types/menu-item";
 import type React from "react";
 import { useState } from "react";
 
@@ -8,8 +8,7 @@ type Props = {
     onClose: (menuItem: MenuItem | null, isEditing?: boolean) => void;
 };
 
-const newMenuItem: MenuItem = {
-    id: "",
+export const newMenuItem: MenuItemDTO = {
     name: "",
     price: 0,
     description:"",
@@ -20,11 +19,11 @@ const newMenuItem: MenuItem = {
 
 export const MenuItemForm: React.FC<Props>= ({item, onClose}) =>{
     const isEditing = Boolean(item)
-    const [menuItem, setMenuItem] = useState<MenuItem>(() => {
+    const [menuItem, setMenuItem] = useState<any>(() => {
         if(item) {
-            return {...item, tags: item.tags.join(',') as any};
+            return {...item, tags: (item.tags || []).join(',') as any};
         } 
-        return newMenuItem
+        return {...newMenuItem, tags:''}
     });
     
 
@@ -78,7 +77,8 @@ export const MenuItemForm: React.FC<Props>= ({item, onClose}) =>{
                         onChange={handleChange} 
                     />
                 <label htmlFor="description" className="form-label">Descripción</label>
-                    <textarea 
+                    <textarea
+                        className="form-control"
                         name="description"
                         value={menuItem.description} 
                         onChange={handleChange} 
@@ -91,7 +91,7 @@ export const MenuItemForm: React.FC<Props>= ({item, onClose}) =>{
                         checked={menuItem.isOnSale} 
                         onChange={handleChange} 
                     />
-                <label htmlFor="image" className="form-check-label">Recomendación del día</label>
+                <label htmlFor="image" className="form-check-label">Imagen</label>
                     <input
                         className="form-control"
                         type="text" 

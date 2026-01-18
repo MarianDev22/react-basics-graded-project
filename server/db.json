@@ -3,10 +3,10 @@
     {
       "id": "a2f7",
       "name": "Hummus de Remolacha con Crudités",
-      "price": 9,
+      "price": 10,
       "description": "Crema de garbanzos y remolacha servida con bastoncitos de zanahoria y apio fresco.",
       "image": "https://images.unsplash.com/photo-1541519227354-08fa5d50c44d",
-      "isOnSale": true,
+      "isOnSale": false,
       "tags": [
         "entrante",
         "vegano",
@@ -28,10 +28,10 @@
     {
       "id": "c8e4",
       "name": "Ensalada de Quinoa y Mango",
-      "price": 11,
+      "price": 8,
       "description": "Mezcla de hojas verdes, quinoa real, mango fresco y vinagreta de lima.",
       "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
-      "isOnSale": false,
+      "isOnSale": true,
       "tags": [
         "entrante",
         "vegano",

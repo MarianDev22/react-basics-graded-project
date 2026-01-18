@@ -60,26 +60,26 @@ export const getMenuItemById = async (id: string): Promise<MenuItem> => {
 //     return data;
 // };
 
-// export const updateMenuItem = async (
-//     id: MenuItem["id"],
-//     mitemData: Partial<MenuItemDTO>
-// ): Promise<MenuItem> => {
-//     const response: Response = await fetch(productsUrl + "/" + id, {
-//         method: "PATCH",
-//         body: JSON.stringify(mitemData),
-//         headers: {
-//             ...getAuthHeader(),
-//             "Content-Type": "application/json",
-//         },
-//     });
-//     if (!response.ok) {
-//         throw new Error(
-//             response.status.toString() + ` - ` + response.statusText
-//         );
-//     }
-//     const data = await response.json();
-//     return data;
-// };
+export const updateMenuItem = async (
+    id: MenuItem["id"],
+    mitemData: Partial<MenuItemDTO>
+): Promise<MenuItem> => {
+    const response: Response = await fetch(productsUrl + "/" + id, {
+        method: "PATCH",
+        body: JSON.stringify(mitemData),
+        headers: {
+            ...getAuthHeader(),
+            "Content-Type": "application/json",
+        },
+    });
+    if (!response.ok) {
+        throw new Error(
+            response.status.toString() + ` - ` + response.statusText
+        );
+    }
+    const data = await response.json();
+    return data;
+};
 
 export const deleteMenuItem = async (id: MenuItem["id"]): Promise<MenuItem> => {
     const response: Response = await fetch(productsUrl + "/" + id, {
@@ -99,6 +99,6 @@ export default {
     getMenuList,
      getMenuItemById,
 //     createMenuItem,
-//     updateMenuItem,
+    updateMenuItem,
     deleteMenuItem,
 };
